@@ -23,64 +23,100 @@ class calculator {
 }
 
 void main() {
-  calculator result = calculator();
-  print(
-      "this is a simple calculator to do basic operation\nsuch as : + or - or * or / or % \non two integer numbers\nplease enter the first number or to exit please enter zero : ");
-  int firstNumber = int.parse(stdin.readLineSync()!);
-  if (firstNumber == 0) {
-    exit(0);
-  } else {
+  while (true) {
+    calculator result = calculator();
+    int? firstNumber, secondNumber;
+    String operation;
+    print(
+        "this is a simple calculator to do basic operation\nsuch as : + or - or * or / or % \non two integer numbers\nplease enter the first number or to exit please enter zero : ");
+    while (true) {
+      try {
+        firstNumber = int.parse(stdin.readLineSync()!);
+        break;
+      } catch (e) {
+        print("your first number is unvalid please enter a valid value");
+      }
+    }
+    if (firstNumber == 0) {
+      exit(0);
+    }
     print("please enter the second number : ");
-    int secondNumber = int.parse(stdin.readLineSync()!);
+    while (true) {
+      try {
+        secondNumber = int.parse(stdin.readLineSync()!);
+        break;
+      } catch (e) {
+        print("your second number is unvalid please enter a valid value");
+      }
+    }
     print(
         "please choose the operation you want.\nType + for addition\nType - for subtraction\nType * for multiplication\nType % to get the remainder of the division\nType / to divide");
-    String operation = stdin.readLineSync()!;
-    switch (operation) {
-      case "+":
-        {
-          print(
-              "$firstNumber + $secondNumber =  ${result.addition(firstNumber, secondNumber)}");
-        }
+    while (true) {
+      operation = stdin.readLineSync()!;
+      if (operation == "+" ||
+          operation == '-' ||
+          operation == '*' ||
+          operation == '/' ||
+          operation == '%') {
         break;
-
-      case "-":
-        {
-          print(
-              "$firstNumber - $secondNumber =  ${result.subtraction(firstNumber, secondNumber)}");
-        }
-        break;
-
-      case "*":
-        {
-          print(
-              "$firstNumber * $secondNumber =  ${result.multiplication(firstNumber, secondNumber)}");
-        }
-        break;
-
-      case "/":
-        {
-          try {
-            result.dividing(firstNumber, secondNumber);
+      } else {
+        print("unvalid operation please enter a valid operation");
+      }
+    }
+    bool switchOff = false;
+    while (!switchOff) {
+      switch (operation) {
+        case "+":
+          {
             print(
-                "$firstNumber / $secondNumber =  ${result.dividing(firstNumber, secondNumber)}");
-          } on IntegerDivisionByZeroException {
-            print('Cannot divide by zero');
+                "$firstNumber + $secondNumber =  ${result.addition(firstNumber, secondNumber)}");
+            switchOff = true;
           }
-        }
-        break;
+          break;
 
-      case "%":
-        {
-          print(
-              "$firstNumber % $secondNumber =  ${result.remainderOfTheDevision(firstNumber, secondNumber)}");
-        }
-        break;
+        case "-":
+          {
+            print(
+                "$firstNumber - $secondNumber =  ${result.subtraction(firstNumber, secondNumber)}");
+            switchOff = true;
+          }
+          break;
 
-      default:
-        {
-          print("Invalid operator");
-        }
-        break;
+        case "*":
+          {
+            print(
+                "$firstNumber * $secondNumber =  ${result.multiplication(firstNumber, secondNumber)}");
+            switchOff = true;
+          }
+          break;
+
+        case "/":
+          {
+            try {
+              result.dividing(firstNumber, secondNumber);
+              print(
+                  "$firstNumber / $secondNumber =  ${result.dividing(firstNumber, secondNumber)}");
+            } on IntegerDivisionByZeroException {
+              print('Cannot divide by zero');
+            }
+            switchOff = true;
+          }
+          break;
+
+        case "%":
+          {
+            print(
+                "$firstNumber % $secondNumber =  ${result.remainderOfTheDevision(firstNumber, secondNumber)}");
+            switchOff = true;
+          }
+          break;
+
+        default:
+          {
+            print("Invalid operator");
+          }
+          break;
+      }
     }
   }
 }
