@@ -36,8 +36,18 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text("To Do App"),
-          bottom: const TabBar(
-            tabs: [
+          bottom: TabBar(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5,
+              vertical: 10,
+            ),
+            indicator: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.indigo,
+            ),
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.black,
+            tabs: const [
               Text("Tasks"),
               Text("Waiting"),
               Text("Finished"),
