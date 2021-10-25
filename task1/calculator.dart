@@ -23,10 +23,10 @@ class calculator {
 }
 
 void main() {
+  calculator result = calculator();
+  int firstNumber, secondNumber;
+  String operation;
   while (true) {
-    calculator result = calculator();
-    int? firstNumber, secondNumber;
-    String operation;
     print(
         "this is a simple calculator to do basic operation\nsuch as : + or - or * or / or % \non two integer numbers\nplease enter the first number or to exit please enter zero : ");
     while (true) {
@@ -34,11 +34,12 @@ void main() {
         firstNumber = int.parse(stdin.readLineSync()!);
         break;
       } catch (e) {
-        print("your first number is unvalid please enter a valid value");
+        print(
+            "your first number is unvalid please enter a valid value or zero to exit : ");
       }
     }
     if (firstNumber == 0) {
-      exit(0);
+      break;
     }
     print("please enter the second number : ");
     while (true) {
