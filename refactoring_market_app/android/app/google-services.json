@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "350194880324",
+    "project_id": "market-54120",
+    "storage_bucket": "market-54120.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350194880324:android:65d3aeefcc38da73cd9111",
+        "android_client_info": {
+          "package_name": "com.example.refactoring_market_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350194880324-sb9n3urpvgenmumdhtshsl7thgga960a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNO701i34llPRgKkgTGXsV5boNMNsXi9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350194880324-sb9n3urpvgenmumdhtshsl7thgga960a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "350194880324-boor9id414qagls7fd4cuh7830ji97eh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.refactoringMarketApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
